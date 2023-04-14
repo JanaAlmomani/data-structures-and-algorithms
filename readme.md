@@ -4,7 +4,7 @@
 Write a function called insertShiftArray which takes in an array and a value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 ## Whiteboard Process
 ![cc2](./cc2_fixed.PNG)
-![Whiteboard](./CC2.jpg)
+![Whiteboard](./pseudocode-cc2.PNG)
 
 ## Approach & Efficiency
 ## Algorithm :
@@ -22,8 +22,8 @@ The time complexity is O(n) , where n is the length of the input array. This is 
  The space complexity is O(n), because it appends an extra space at the end of the array, which adds an additional element to the array. Therefore, the function requires additional memory proportional to the length of the input array.
 
 ## Solution
-### [click here to go to the code]()
-### [click here to go to the test code]()
+### [click here to go to the code](./insertShiftArray/insertShiftArray.py)
+### [click here to go to the test code](./tests/test_insertShiftArray.py)
 
 Test Cases :
 1.	Input:[2,4,6,-8], 5 , Expected Output:	[2,4,5,6,-8]
