@@ -1,32 +1,33 @@
-# Challenge Title: Array Reverse
-## Code Challenge: Class 01
+# Challenge Title: Insert and shift an array in middle at index
+## Code Challenge: Class 02
 ## Feature Tasks
-Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
+Write a function called insertShiftArray which takes in an array and a value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 ## Whiteboard Process
-![cc1](./cc1.PNG)
-![Whiteboard](./witheboard-reverArray.PNG)
+![cc2](./cc2_fixed.PNG)
+![Whiteboard](./CC2.jpg)
 
 ## Approach & Efficiency
 ## Algorithm :
 
-1.	Create an empty list called reversed_arr to store the reversed elements of the input array.
-2.	Loop through the input array arr backwards using a for loop. We use the range() function to generate a      sequence of indices starting from the last index of arr and going backwards to the first index with a step of -1.
-3.	During each iteration of the loop, we append the element at the current index of arr to the beginning of reversed_arr using the append() method.
-4.	Once the loop is complete, the reverseArray function returns the reversed array reversed_arr.
-
+**In short**
+1.	Calculate the middle index of the array
+2.	Add empty space to the end of the array
+3.	Starting from the end of the array, shift each element to the right by one position until the middle index is reached
+4.	If the length of the array is odd, insert the value at the middle index. If the length of the array is even, insert the value after the middle index
+5.	Return the modified array
 
 ## Big O :
-The time complexity is O(n) because it loops through the entire input array once, and the time it takes to append each element to the new list is constant. This algorithm is optimal in terms of time complexity for this problem.
+The time complexity is O(n) , where n is the length of the input array. This is because the function loops through the array to shift the elements to the right until it reaches the middle index, which takes n/2 iterations on average.
 
-The space complexity is O(n), where n is the length of the input array arr. This is because the function creates a new list to store the reversed elements of arr, and the size of this list is directly proportional to the size of the input array.
+ The space complexity is O(n), because it appends an extra space at the end of the array, which adds an additional element to the array. Therefore, the function requires additional memory proportional to the length of the input array.
 
 ## Solution
-### [click here to go to the code](./ArrayReverse/ArrayReverse.py)
-### [click here to go to the test code](./tests//test_ArrayReverse.py)
+### [click here to go to the code]()
+### [click here to go to the test code]()
 
 Test Cases :
-1.	Input: [1 ,2 ,3 ,4 ,5], Expected Output: [5 ,4 ,3 ,2 ,1] 
-2.	Input: [5, 6, 7, 8 ,4], Expected Output: [4,8, 7, 6, 5] 
+1.	Input:[2,4,6,-8], 5 , Expected Output:	[2,4,5,6,-8]
+2.	Input: [42,8,15,23,42], 16	 , Expected Output: [42,8,15,16,23,42]
 3.	Input: [5], Expected Output: [5]
 4.	Input: [], Expected Output: []
 
@@ -35,6 +36,7 @@ To run the code:
 1. source .venv/bin/activate
 2. pip install pytest
 3. pytest
+
  - [x] Top-level README “Table of Contents” is updated
  - [x] README for this challenge is complete
  - [x] Summary, Description, Approach & Efficiency, Solution
