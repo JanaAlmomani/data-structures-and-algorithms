@@ -5,6 +5,7 @@ Write a function called insertShiftArray which takes in an array and a value to 
 ## Whiteboard Process
 ![cc2](./cc2_fixed.PNG)
 ![Whiteboard](./pseudocode-cc2.PNG)
+![pseudocode](./Pseudocode-CC2-updated.PNG)
 
 ## Approach & Efficiency
 ## Algorithm :
@@ -36,14 +37,3 @@ To run the code:
 1. source .venv/bin/activate
 2. pip install pytest
 3. pytest
-
- - [x] Top-level README “Table of Contents” is updated
- - [x] README for this challenge is complete
- - [x] Summary, Description, Approach & Efficiency, Solution
- - [x] Picture of whiteboard
- - [x] Link to code
- - [x] Feature tasks for this challenge are completed
- - [x] Unit tests written and passing
- - [x] “Happy Path” - Expected outcome
- - [x] Expected failure
- - [x] Edge Case (if applicable/obvious)
