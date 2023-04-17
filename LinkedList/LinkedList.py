@@ -47,8 +47,8 @@ class LinkedList:
     
     def append(self, value):
         """
-        This method inorder to adds a new node with a specified value to the end of the list
-        
+        This method inorder to add a new node with a specified value to the end of the list
+
         """
         node = Node(value)
         if self.head is None:
@@ -61,6 +61,10 @@ class LinkedList:
 
 
     def insert_before(self, value, new_value):
+        """
+        This method inorder to add a new node with a specified value before a specific node in the list
+        by iterating over the list until it finds the node with the specified value
+        """
         if self.head is None:
             print(f"{value} not found in the list")
             return
@@ -74,6 +78,8 @@ class LinkedList:
 
         while current is not None:
             if current.value == value:
+ # creates a new node with the specified new value and inserts it before the node with the specified value 
+  # updating the next pointers of the previous node and the new node
                 node = Node(new_value)
                 node.next = current
                 prev.next = node
@@ -84,6 +90,10 @@ class LinkedList:
         print(f"{value} not found in the list")
 
     def insert_after(self, value, new_value):
+        """
+        This method inorder to add a new node with a specified value after a specific node in the list
+        by does this by iterating over the list until it finds the node with the specified value
+        """
         if self.head is None:
             print(f"{value} not found in the list")
             return
