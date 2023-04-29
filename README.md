@@ -1,26 +1,25 @@
 # Challenge Title: Linked List Implementation
 ## Code Challenge: Class 05 
 ## Feature Tasks
-This project For add new node in the first of the linkedlist
+Write the following methods for the Linked List class:
+
+- insert -> Inserts a new node containing the specified value at the **beginning** of the linked list, it takes Args value that represent The value to be stored in the new node.
+- includes-> Searches the linked list for a node containing the specified value, it takes Args value The value to search for in the linked list
+- to_string-> a string representation of the linked list in the following format:
+        'LinkedList: {value1} -> {value2} -> ... -> {valueN} -> NULL'
+        where {value1}, {value2}, ..., {valueN} are the data values of each node in the linked list
+        If the linked list is empty, it returns 'Empty LinkedList'
 ## Whiteboard Process
-![]()
-
+![insert-fun](insert-fun.PNG)
+![includes-fun](includes-fun.PNG)
+![to_string](to_string.PNG)
 ## Approach & Efficiency
-## Algorithm :
-**In short**
-
-1. __init__(self) initializes an empty linked list by setting the head attribute to None.
-
-2. insert(self, value) inserts a new node with the given value at the beginning of the linked list.
-
-3. includes(self, value) traverses the linked list to check if it contains a node with the given value. If it does, it returns True, otherwise it returns False.
-
-4. __repr__(self) and __str__(self) return a string representation of the linked list. __repr__ is a more technical representation that is used when the object is printed or shown, while __str__ is a more user-friendly representation that shows the linked list as a sequence of values.
-
-
 ## Big O :
-The time complexity is  O(1) 
- The space complexity is  O(n)
+- For the first method :insert Time complexity : O(1) Space complexity : O(1)
+
+- For the second method :includes Time complexity : O(n) Space complexity : O(1)
+
+- For the thared method :to_string Time complexity : O(n) Space complexity : O(1)
 
 ## Solution
 ### [click here to go to the code](./LinkedList/LinkedList.py)
@@ -31,4 +30,4 @@ To run the code:
 -on your terminal follow these command:
 1. source .venv/bin/activate
 2. pip install pytest
-3. pytest
+3. pytest or pytest -s
