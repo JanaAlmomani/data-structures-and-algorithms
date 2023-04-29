@@ -1,67 +1,83 @@
 import pytest
+
 from LinkedList.LinkedList import *
 
-
-# Test empty linked list
-def test_empty_ll():
-    ll = LinkedList()
-    expected = "Empty LinkedList"
-    actual = str(ll)
-    assert expected == actual
-
-# Test insert 6 nodes
-def test_insert(ll):
-    expected = "{ 9 } -> { 6 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL"
-    actual = str(ll)
-    assert expected == actual
-
-# Test includes 
-def test_includes(ll):
-    expected = "True"
-    actual = str(ll.includes(9))
-    assert expected == actual
-
-# Test append 
-def test_append(ll):
-    ll.append(20)
-    expected = "{ 9 } -> { 6 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> { 20 } -> NULL"
-    actual = str(ll)
-    assert expected == actual
-
-# Test insert_before
-def test_insert_before(ll):
-    ll.insert_before(6, 4)
-    expected = "{ 9 } -> { 4 } -> { 6 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL"
-    assert str(ll) == expected
-
-# Test insert_before not found
-def test_insert_before_not_found(ll):
-    ll.insert_before(8, 4)
-    expected = "{ 9 } -> { 6 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL"
-    assert str(ll) == expected
-
-# Test insert_before 
-def test_insert_after(ll):
-    ll.insert_after(6, 4)
-    expected = "{ 9 } -> { 6 } -> { 4 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL"
-    assert str(ll) == expected
-
-# Test insert_before not found
-def test_insert_after_not_found(ll):
-    ll.insert_after(8, 4)
-    expected = "{ 9 } -> { 6 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL"
-    assert str(ll) == expected
-
-# { 9 } -> { 6 } -> { 1 } -> { 2 } -> { 5 } -> { 3 } -> NULL
 @pytest.fixture
 def ll():
     ll = LinkedList()
-    ll.insert(3)
-    ll.insert(5)
-    ll.insert(2)
     ll.insert(1)
-    ll.insert(6)
-    ll.insert(9)
-    # ll.includes(9)
-  
+    ll.insert(2)
+    ll.insert(3)
     return ll
+
+
+def test_empty_linked_list():
+    linked_list = LinkedList()
+    expected = "Empty LinkedList"
+    actual = str(linked_list)
+    assert expected == actual
+
+# Test insert 3 nodes
+def test_insert(ll):
+    expected = "{ 3 } -> { 2 } -> { 1 } -> NULL"
+    actual = str(ll)
+    assert expected == actual
+# Test linked list to string
+def test_to_string(ll):
+    assert ll.to_string() == "{ 3 } -> { 2 } -> { 1 } -> NULL"
+
+# Test includes 
+def test_includes(ll):
+    expected = "False"
+    actual = str(ll.includes(9))
+    assert expected == actual
+
+# Test includes 
+def test_includes_two(ll):
+    assert ll.includes(1) == True
+    assert ll.includes(2) == True
+    assert ll.includes(3) == True
+    assert ll.includes(4) == False
+
+# Test append 
+def test_append(ll):
+    ll.append(5)
+    expected = "{ 3 } -> { 2 } -> { 1 } -> { 5 } -> NULL"
+    actual = str(ll)
+    assert expected == actual
+# Test insert after
+def test_insert_after():
+    # Create a linked list with three nodes: 1 -> 2 -> 3 -> NULL
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+# Test inserting after a node with value 3
+    ll.insert_after(3, 5)
+    expected = "{ 1 } -> { 2 } -> { 3 } -> { 5 } -> NULL"
+    assert str(ll) == expected
+
+    # Test inserting after a node with value 2
+    ll.insert_after(2, 5)
+    assert str(ll) == "{ 1 } -> { 2 } -> { 5 } -> { 3 } -> { 5 } -> NULL"
+
+    # Test inserting after a non-existent value
+    with pytest.raises(ValueError):
+        ll.insert_after(4, 5)
+    assert str(ll) == "{ 1 } -> { 2 } -> { 5 } -> { 3 } -> { 5 } -> NULL"
+
+def test_insert_before():
+    linked_list = LinkedList()
+    assert linked_list.head is None
+    assert linked_list.to_string() == "NULL"
+    
+    linked_list.insert_before(3, 1)
+    assert linked_list.to_string() == "NULL"
+    
+    linked_list.append(2)
+    linked_list.insert_before(2, 1)
+    assert linked_list.to_string() == "{ 1 } -> { 2 } -> NULL"
+    
+    linked_list.insert_before(1, 0)
+    assert linked_list.to_string() == "{ 0 } -> { 1 } -> { 2 } -> NULL"
+
