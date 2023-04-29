@@ -9,9 +9,9 @@ Write the following methods for the Linked List class:
 
 
 ## Whiteboard Process
-![fun-append](../data-structures-and-algorithms/img/fun-append.PNG)
-![insert_before](../data-structures-and-algorithms/img/insert-before-fun.PNG)
-![insert_after](../data-structures-and-algorithms/img/insert_after.PNG)
+![fun-append](fun-append.PNG)
+![insert_before](insert-before-fun.PNG)
+![insert_after](insert_after.PNG)
 ## Approach & Efficiency
 
 
