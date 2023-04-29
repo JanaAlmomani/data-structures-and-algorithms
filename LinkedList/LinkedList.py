@@ -1,9 +1,46 @@
-from LinkedList.node import Node
+from .node import Node
 
 class LinkedList:
+    """
+    A class representing a linked list data structure
+
+    Attributes:
+        head: A reference to the first node in the linked list
+    
+    """
     def __init__(self):
+        """
+        Initializes a new empty linked list.
+
+        Attributes:
+        head: Node or None
+            The first node in the linked list, or None if the list is empty.
+        
+        """
         self.head = None
 
+    def __str__(self):
+        """
+        Returns a string representation of the linked list in the following format:
+        'LinkedList: {value1} -> {value2} -> ... -> {valueN} -> NULL'
+        where {value1}, {value2}, ..., {valueN} are the data values of each node in the linked list.
+        If the linked list is empty, it returns 'Empty LinkedList'.
+
+        Returns:
+            A string representation of the linked list.
+        """
+        output = ""
+        if self.head is None:
+            output = "Empty LinkedList"
+        else:
+            current = self.head
+            while(current):
+                output += f'{{ {current.value} }} -> '
+                current = current.next
+
+            output += "NULL"
+        return output
+    
     def __repr__(self):
 
         output = ""
@@ -19,12 +56,43 @@ class LinkedList:
             output += " None"
         return output
     
+    def to_string(self):
+        """
+        Returns:
+         A string representation of the linked list.
+        """
+        output = ""
+        current_node = self.head
+        while current_node:
+            output += "{ " + str(current_node.value) + " } -> "
+            current_node = current_node.next
+        output += "NULL"
+        return output
+    
+
+    
     def insert(self, value):
+        """
+        Inserts a new node containing the specified value at the **beginning** of the linked list.
+
+        Args:
+            value: The value to be stored in the new node.
+        """
         node = Node(value)
         node.next = self.head
         self.head = node
 
+
     def includes(self,value):
+        """
+        Searches the linked list for a node containing the specified value.
+
+        Args:
+            value: The value to search for in the linked list.
+
+        Returns:
+            True if a node with the specified value is found, False otherwise.
+        """
         current = self.head
         while current:
             if current.value == value:
@@ -32,23 +100,14 @@ class LinkedList:
             current = current.next
         return False
         
-    def __str__(self):
-        output = ""
-        if self.head is None:
-            output = "Empty LinkedList"
-        else:
-            current = self.head
-            while(current):
-                output += f'{{ {current.value} }} -> '
-                current = current.next
-
-            output += "NULL"
-        return output
+    
     
     def append(self, value):
         """
-        This method inorder to add a new node with a specified value to the end of the list
+        Adds a new node containing the specified value to the end of the linked list.
 
+        Args:
+            value: The value to be stored in the new node.
         """
         node = Node(value)
         if self.head is None:
@@ -62,41 +121,41 @@ class LinkedList:
 
     def insert_before(self, value, new_value):
         """
-        This method inorder to add a new node with a specified value before a specific node in the list
-        by iterating over the list until it finds the node with the specified value
+        Adds a new node containing the specified new value before the first occurrence of a node with the specified value in the linked list
+        
+        Args:
+            value: The value of the node to insert the new node before.
+            new_value: The value to be stored in the new node.
         """
-        if self.head is None:
-            print(f"{value} not found in the list")
+        if not self.head:
             return
+        prev_node = None
+        current_node = self.head
+        while current_node and current_node.value != value:
+            prev_node = current_node
+            current_node = current_node.next
+        if not current_node:
+            raise ValueError("Value not found in linked list.")
+        new_node = Node(new_value)
+        if prev_node:
+            prev_node.next = new_node
+        else:
+            self.head = new_node
+        new_node.next = current_node
 
-        if self.head.value == value:
-            self.insert_first(new_value)
-            return
-
-        current = self.head.next
-        prev = self.head
-
-        while current is not None:
-            if current.value == value:
- # creates a new node with the specified new value and inserts it before the node with the specified value 
-  # updating the next pointers of the previous node and the new node
-                node = Node(new_value)
-                node.next = current
-                prev.next = node
-                return
-            prev = current
-            current = current.next
-
-        print(f"{value} not found in the list")
+     
+ 
 
     def insert_after(self, value, new_value):
         """
-        This method inorder to add a new node with a specified value after a specific node in the list
-        by does this by iterating over the list until it finds the node with the specified value
+        Adds a new node containing the specified new value after the first occurrence of a node with the specified value in the linked list.
+       
+        Args:
+            value: The value of the node to insert the new node after.
+            new_value: The value to be stored
         """
         if self.head is None:
-            print(f"{value} not found in the list")
-            return
+            raise ValueError(f"{value} not found in the list")
 
         current = self.head
         while current is not None:
@@ -107,30 +166,50 @@ class LinkedList:
                 return
             current = current.next
 
-        print(f"{value} not found in the list")
-
+        raise ValueError(f"{value} not found in the list")
         
+    
+    def kthFromEnd(self, k):
+        """
+    This method returns the value of the kth node from the end of the linked list.
 
-ll = LinkedList()
+    Args:
+        k (int): The position of the node from the end of the list 
 
-ll.insert(3)
-ll.insert(5)
-ll.insert(2)
-ll.insert(1)
-ll.insert(6)
-ll.insert(9)
+    Returns:
+        int or str: The value of the kth node from the end of the list if it exists, 
+        or an error message if the list is empty,
+        k is larger than the length of the linked list, 
+        or k is less than 0.
 
-# print(ll.includes(9))
-ll.append(0)
-ll.insert(10)
-ll.append(20)
-ll.insert_before(0,1)
-# ll.insert_before(7,1)
-ll.insert_after(7,1)
-ll.insert_after(20,30)
-ll.append(20)
-print(ll)  # "1 -> 2 -> 3 -> None"
-# print(ll.includes(2))  # True
-# print(ll.includes(4))  # False
+         """
+        #  Edge case 1: k is not a positive integer
+        if k < 0:
+            raise ValueError("k must be a positive integer")
+        
+        # Edge case 2: Empty LinkedList
+        if self.head is None:
+            raise ValueError("List is empty")
 
-# print(ll)
+        # Edge case 3: k is larger than the length of the linked list
+        # if k >= length:
+       
+        length = 0
+        current_node = self.head
+        while current_node:
+            length += 1
+            current_node = current_node.next
+            
+        if k >= length:
+            raise ValueError("k is greater than or equal to the length of the list")
+        
+        # General case
+        current_node = self.head
+        for _ in range(1, length - k):
+            current_node = current_node.next
+            
+        return current_node.value
+
+
+
+
