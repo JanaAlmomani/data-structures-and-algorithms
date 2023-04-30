@@ -1,6 +1,7 @@
 import pytest
 
 from LinkedList.LinkedList import *
+from LinkedList.LinkedList import zipLists
 
 @pytest.fixture
 def ll():
@@ -110,3 +111,42 @@ def test_kthFromEnd():
     
     # Test general case
     assert linked_list.kthFromEnd(1) == 2
+
+def test_zipLists():
+    # Test with both lists having equal length
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list1.append(3)
+    list2 = LinkedList()
+    list2.append(4)
+    list2.append(5)
+    list2.append(6)
+    result = zipLists(list1, list2)
+    assert str(result) == "{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 3 } -> { 6 } -> NULL"
+
+    # Test with one list being longer than the other
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list2 = LinkedList()
+    list2.append(4)
+    list2.append(5)
+    list2.append(6)
+    list2.append(7)
+    result = zipLists(list1, list2)
+    assert str(result) == "{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 6 } -> { 7 } -> NULL"
+
+    # Test with one empty list
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list2 = LinkedList()
+    result = zipLists(list1, list2)
+    assert str(result) == "{ 1 } -> { 2 } -> NULL"
+
+    # Test with both empty lists
+    list1 = LinkedList()
+    list2 = LinkedList()
+    result = zipLists(list1, list2)
+    assert str(result) == "Empty LinkedList"

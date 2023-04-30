@@ -1,16 +1,16 @@
-# Challenge Title: Linked List Implementation(k-th value from the end of a linked list.)
-## Code Challenge: Class 07
+# Challenge Title: Linked List Implementation(Zip two linked lists.)
+## Code Challenge: Class 08
 ## Feature Tasks
-Write the following methods for the Linked List class:
-- kth from end -> This method returns the value of the kth node from the end of the linked list ,it takes  Args:
-        k (int): The position of the node from the end of the list (k=0 returns the last node, k=1 returns the second last node, and so on).
-
+Write a function called zip lists
+- Arguments: 2 linked lists
+- Return: New Linked List, zipped as noted below
+- Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the the zipped list.
 ## Whiteboard Process
-![kthFromEnd](./img/kthFromEnd-fun.PNG)
+![zipLists](./zipLists.PNG)
 ## Approach & Efficiency
 ## Big O :
 
-The time complexity is  O(n)
+The time complexity is  O(n+m)
 
 The space complexity is  O(1) 
 
@@ -23,5 +23,5 @@ To run the code:
 -on your terminal follow these command:
 1. source .venv/bin/activate
 2. pip install pytest
-3. pytest or pytest
+3. pytest 
 

@@ -211,5 +211,74 @@ class LinkedList:
         return current_node.value
 
 
+  
+       
+    # def zipLists(list1, list2):
+    #     """
+    #     Merges two linked lists, alternating nodes between them, and returns a new linked list.
+
+    #     Args:
+    #         list1 (LinkedList): The first linked list to merge.
+    #         list2 (LinkedList): The second linked list to merge.
+
+    #     Returns:
+    #         LinkedList: A new linked list that alternates nodes between list1 and list2, until both are exhausted.
+    #             If one of the lists is longer than the other, the remaining nodes are appended to the end of the result.
+    #             If both lists are empty, an empty linked list is returned.
+    #     """
+ 
+    
+def zipLists(list1, list2):
+    """
+    Merges two linked lists, alternating nodes between them, and returns a new linked list.
+
+    Args:
+        list1 (LinkedList): The first linked list to merge.
+        list2 (LinkedList): The second linked list to merge.
+
+    Returns:
+        LinkedList: A new linked list that alternates nodes between list1 and list2, until both are exhausted.
+            If one of the lists is longer than the other, the remaining nodes are appended to the end of the result.
+            If both lists are empty, an empty linked list is returned.
+    """
+    # Handle edge cases where one or both lists are empty
+    if not list1:
+        return list2
+    if not list2:
+        return list1
+    
+    # Initialize pointers to the heads of both lists
+    current1 = list1.head
+    current2 = list2.head
+    
+    # Initialize a new linked list
+    result = LinkedList()
+    last_node = None
+    
+    # Iterate over both lists simultaneously
+    while current1 or current2:
+        if current1:
+            if not last_node:
+                result.head = current1
+                last_node = current1
+            else:
+                last_node.next = current1
+                last_node = last_node.next
+            current1 = current1.next
+            
+        if current2:
+            if not last_node:
+                result.head = current2
+                last_node = current2
+            else:
+                last_node.next = current2
+                last_node = last_node.next
+            current2 = current2.next
+    
+    return result
+
+
+
+
 
 
