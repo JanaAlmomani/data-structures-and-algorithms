@@ -14,7 +14,8 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
     3. peek
     4. is empty
 ## Whiteboard Process
-![stack]()
+### Stack
+![stack](./slack-Wh.PNG)
 ![Queue]()
 ## Approach & Efficiency
 ### Stack :
