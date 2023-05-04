@@ -1,27 +1,57 @@
-# Challenge Title: Linked List Implementation(Zip two linked lists.)
-## Code Challenge: Class 08
+# Challenge Title: Stack And Queue
+## Code Challenge: Class 10
 ## Feature Tasks
-Write a function called zip lists
-- Arguments: 2 linked lists
-- Return: New Linked List, zipped as noted below
-- Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the the zipped list.
+Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
+- Node
+- Stack 
+    1. push
+    2. pop
+    3. peek
+    4. is empty
+- Queue
+    1. enqueue
+    2. dequeue
+    3. peek
+    4. is empty
 ## Whiteboard Process
-![zipLists](./zipLists.PNG)
+![]()
+![]()
 ## Approach & Efficiency
-## Big O :
+### Stack :
 
-The time complexity is  O(n+m)
+push : Time complexity : O(1) Space complexity : O(1)
 
-The space complexity is  O(1) 
+pop : Time complexity : O(1) Space complexity : O(1)
+
+peek : Time complexity : O(1) Space complexity : O(1)
+
+is_empty : Time complexity : O(1) Space complexity : O(1)
+
+
+## Approach & Efficiency
+### Queue :
+
+enqueue : Time complexity : O(1) Space complexity : O(1)
+
+dequeue : Time complexity : O(1) Space complexity : O(1)
+
+peek : Time complexity : O(1) Space complexity : O(1)
+
+is_empty : Time complexity : O(1) Space complexity : O(1)  
 
 ## Solution
-### [click here to go to the code](./LinkedList/LinkedList.py)
-### [click here to go to the test code](./tests/test_ll.py)
+### [Sack code](./StackAndQueue/stack.py)
+### [Stack test code](./tests/stack_test.py)
+### [Queue code](./StackAndQueue/queue.py)
+### [Queue test code](./tests/test_queue.py)
 
 
 To run the code:
 -on your terminal follow these command:
+1. python3 -m venv .venv
 1. source .venv/bin/activate
-2. pip install pytest
+2. pip install pytest or pip install -r requirements.txt
 3. pytest 
 
+after finishing write this command:
+deactivate
