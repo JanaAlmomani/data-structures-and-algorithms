@@ -1,49 +1,27 @@
-# Challenge Title: Stack And Queue
-## Code Challenge: Class 10
+# Challenge Title: Implement a Queue using two Stacks
+## Code Challenge: Class 11
 ## Feature Tasks
-Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
-- Node
-- Stack 
-    1. push
-    2. pop
-    3. peek
-    4. is empty
-- Queue
+- Create a new class called pseudo queue.
+    Internally, utilize 2 Stack instances to create and manage the queue
+- Methods:
     1. enqueue
+        Arguments: value
+        Inserts a value into the PseudoQueue, using a first-in, first-out approach.
     2. dequeue
-    3. peek
-    4. is empty
+        Arguments: none
+        Extracts a value from the PseudoQueue, using a first-in, first-out approach.
 ## Whiteboard Process
 ![]()
-![]()
 ## Approach & Efficiency
-### Stack :
 
-push : Time complexity : O(1) Space complexity : O(1)
-
-pop : Time complexity : O(1) Space complexity : O(1)
-
-peek : Time complexity : O(1) Space complexity : O(1)
-
-is_empty : Time complexity : O(1) Space complexity : O(1)
-
-
-## Approach & Efficiency
-### Queue :
-
-enqueue : Time complexity : O(1) Space complexity : O(1)
-
-dequeue : Time complexity : O(1) Space complexity : O(1)
-
-peek : Time complexity : O(1) Space complexity : O(1)
-
-is_empty : Time complexity : O(1) Space complexity : O(1)  
+Time complexity :
+    The time complexity of enqueue and dequeue methods is O(n), where n is the number of elements in the queue, because in both methods, in the first will move all the elements from one stack to another, which takes O(n) time, and then perform some constant time operations.
+Space complexity :
+    The space complexity of enqueue and dequeue methods is O(n), because we are using two stacks to implement the queue, each of which can potentially hold n elements.
 
 ## Solution
-### [Sack code](./StackAndQueue/stack.py)
-### [Stack test code](./tests/stack_test.py)
-### [Queue code](./StackAndQueue/queue.py)
-### [Queue test code](./tests/test_queue.py)
+### [Code Link](./StackAndQueue/PseudoQueue.py)
+### [Test Code Link](./tests/test_PseudoQueue.py)
 
 
 To run the code:
