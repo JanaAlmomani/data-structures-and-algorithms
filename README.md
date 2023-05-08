@@ -14,9 +14,9 @@
 ![]()
 ## Approach & Efficiency
 
-Time complexity :
+- Time complexity :
     The time complexity of enqueue and dequeue methods is O(n), where n is the number of elements in the queue, because in both methods, in the first will move all the elements from one stack to another, which takes O(n) time, and then perform some constant time operations.
-Space complexity :
+- Space complexity :
     The space complexity of enqueue and dequeue methods is O(n), because we are using two stacks to implement the queue, each of which can potentially hold n elements.
 
 ## Solution
