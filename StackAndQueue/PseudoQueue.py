@@ -9,17 +9,6 @@ class PseudoQueue:
         self.stack1 = Stack()
         self.stack2 = Stack()
 
-    def __str__(self):
-        """
-        Returns a string representation of the PseudoQueue.
-
-        If the PseudoQueue is empty, returns "Empty PseudoQueue".
-        Otherwise, returns the string representation of stack1.
-        """
-        if self.stack1.is_empty():
-            return "Empty PseudoQueue"
-        return str(self.stack1)
-
     def enqueue(self, value):
         """
         Adds a new node with the given value to the back of the PseudoQueue.
@@ -36,13 +25,6 @@ class PseudoQueue:
     def dequeue(self):
         """
         Removes and returns the value of the front node of the PseudoQueue.
-
-        If the PseudoQueue is empty, raises an IndexError.
-        Otherwise, pop all elements from stack1 and push them onto stack2 in reverse order.
-        Then, pop the top element from stack2 (which is the front element of the PseudoQueue),
-        and reverse the order of the elements in stack2 again by popping them all off
-        stack2 and pushing them back onto stack1.
-        Finally, return the popped value.
         """
         if self.stack1.is_empty() and self.stack2.is_empty():
             raise IndexError("PseudoQueue is empty. Cannot perform dequeue operation")
@@ -66,3 +48,33 @@ class PseudoQueue:
             False otherwise.
         """
         return self.stack1.is_empty() and self.stack2.is_empty()
+    
+    def __str__(self):
+        """
+        Returns a string representation of the PseudoQueue.
+
+        If the PseudoQueue is empty, returns "Empty PseudoQueue".
+        Otherwise, returns the string representation of the queue.
+        """
+        if self.stack1.is_empty():
+            return "Empty PseudoQueue"
+
+        result = "None <-- "
+        current_node = self.stack1.top
+        while current_node is not None:
+            result += str(current_node.value) + " <-- "
+            current_node = current_node.next
+
+        return result[:-5]
+
+
+    
+    
+# ll=PseudoQueue()
+# ll.enqueue(1)
+# ll.enqueue(2)
+# ll.enqueue(3)
+# print(ll.dequeue())
+# ll.enqueue(4)
+# print(ll.dequeue())
+
