@@ -11,7 +11,7 @@
         Arguments: none
         Extracts a value from the PseudoQueue, using a first-in, first-out approach.
 ## Whiteboard Process
-![]()
+![implement-queue-using-stack](./implement-queue-using-stack.PNG)
 ## Approach & Efficiency
 
 - Time complexity :
