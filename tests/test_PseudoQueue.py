@@ -8,12 +8,12 @@ def test_pseudoqueue():
     q.enqueue(10)
     q.enqueue(20)
     q.enqueue(30)
-    assert str(q) == '30 --> 20 --> 10 -->  None'
+    assert str(q) == 'None <-- 30 <-- 20 <-- 10'
 
     # Test dequeue method
     assert q.dequeue() == 10
     assert q.dequeue() == 20
-    assert str(q) == '30 -->  None'
+    assert str(q) == 'None <-- 30'
 
     # Test is_empty method
     assert not q.is_empty()
