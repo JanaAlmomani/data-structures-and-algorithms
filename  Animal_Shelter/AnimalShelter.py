@@ -1,3 +1,4 @@
+from queue import *
 class Animal:
     """
     A class representing an animal.
@@ -11,44 +12,80 @@ class Animal:
 
 class AnimalShelter:
     """
-    A class representing an animal shelter that holds only dogs and cats.
+    A class representing an animal shelter that holds both dogs and cats.
     The shelter operates using a first-in, first-out approach.
     """
     def __init__(self):
         """
         Initializes an empty AnimalShelter.
         """
-        self.dog_queue = []
-        self.cat_queue = []
+        self.animal_queue = Queue()
+
+    # def __str__(self):
+    #         """
+    #         Returns a string representation of the animal shelter.
+    #         """
+    #         if self.animal_queue.front is None:
+    #             return "Empty Queue"
+    #         current = self.animal_queue.front
+    #         output = f"{current.value.species} ({current.value.name})"
+    #         current = current.next
+    #         while current is not None:
+    #             output += f" --> {current.value.species} ({current.value.name})"
+    #             current = current.next
+    #         return output + " --> None"
 
     def __str__(self):
         """
         Returns a string representation of the animal shelter.
         """
-        dog_str = ", ".join([dog.name for dog in self.dog_queue])
-        cat_str = ", ".join([cat.name for cat in self.cat_queue])
-        return f"AnimalShelter(dogs: [{dog_str}], cats: [{cat_str}])"
-    
-    def __reper__(self):
+        if self.animal_queue.front is None:
+            return "Empty Queue"
+        current = self.animal_queue.front
+        output = f"{current.value.species.capitalize()} ({current.value.name.capitalize()})"
+        current = current.next
+        while current is not None:
+            output += f" --> {current.value.species.capitalize()} ({current.value.name.capitalize()})"
+            current = current.next
+        return output + " --> None"
+
+
+    def __repr__(self):
         """
         Returns a string representation of the animal shelter.
         """
-        dog_str = ", ".join([dog.name for dog in self.dog_queue])
-        cat_str = ", ".join([cat.name for cat in self.cat_queue])
-        return f"AnimalShelter(dogs: [{dog_str}], cats: [{cat_str}])"
+        return repr(self.animal_queue)
 
     def enqueue(self, animal):
         """
-        Adds an animal to the appropriate queue based on its species.
+        Adds an animal to the end of the queue.
         """
-        # getattr() function is used to dynamically access the appropriate queue based on the animal's species.
-        getattr(self, f'{animal.species}_queue').append(animal)
+        self.animal_queue.enqueue(animal)
 
     def dequeue(self, pref):
         """
-        Removes and returns the next available dog or cat from the appropriate queue based on preference.
+        Removes and returns the next available animal of the requested species from the queue.
         """
-        queue = self.dog_queue if pref == 'dog' else self.cat_queue
-        if queue:
-            return queue.pop(0)
+        current = self.animal_queue.front
+        previous = None
+        while current:
+            if current.value.species == pref:
+                if previous:
+                    previous.next = current.next
+                else:
+                    self.animal_queue.front = current.next
+                if current == self.animal_queue.rear:
+                    self.animal_queue.rear = previous
+                return current.value
+            previous = current
+            current = current.next
         return None
+
+
+cat = Animal("cat", "Whiskers")
+dog = Animal("dog", "Fido")
+animal_shelter = AnimalShelter()
+animal_shelter.enqueue(cat)
+animal_shelter.enqueue(dog)
+print(animal_shelter.dequeue("dog"))
+# expected = dog

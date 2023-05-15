@@ -1,5 +1,5 @@
 # Challenge Title: Implement a Queue using two Stacks
-## Code Challenge: Class 11
+## Code Challenge: Class 12
 ## Feature Tasks
 - Create a new class called pseudo queue.
     Internally, utilize 2 Stack instances to create and manage the queue
