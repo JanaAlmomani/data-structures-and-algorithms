@@ -21,20 +21,6 @@ class AnimalShelter:
         """
         self.animal_queue = Queue()
 
-    # def __str__(self):
-    #         """
-    #         Returns a string representation of the animal shelter.
-    #         """
-    #         if self.animal_queue.front is None:
-    #             return "Empty Queue"
-    #         current = self.animal_queue.front
-    #         output = f"{current.value.species} ({current.value.name})"
-    #         current = current.next
-    #         while current is not None:
-    #             output += f" --> {current.value.species} ({current.value.name})"
-    #             current = current.next
-    #         return output + " --> None"
-
     def __str__(self):
         """
         Returns a string representation of the animal shelter.
@@ -82,10 +68,5 @@ class AnimalShelter:
         return None
 
 
-cat = Animal("cat", "Whiskers")
-dog = Animal("dog", "Fido")
-animal_shelter = AnimalShelter()
-animal_shelter.enqueue(cat)
-animal_shelter.enqueue(dog)
-print(animal_shelter.dequeue("dog"))
-# expected = dog
+
+

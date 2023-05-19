@@ -1,27 +1,35 @@
-# Challenge Title: Implement a Queue using two Stacks
+# Challenge Title: First-in, First out Animal Shelter.
 ## Code Challenge: Class 12
 ## Feature Tasks
-- Create a new class called pseudo queue.
-    Internally, utilize 2 Stack instances to create and manage the queue
-- Methods:
-    1. enqueue
-        Arguments: value
-        Inserts a value into the PseudoQueue, using a first-in, first-out approach.
-    2. dequeue
-        Arguments: none
-        Extracts a value from the PseudoQueue, using a first-in, first-out approach.
-## Whiteboard Process
-![]()
+
+- Create a class called AnimalShelter which holds only dogs and cats.
+- The shelter operates using a first-in, first-out approach.
+- Implement the following methods:
+1. enqueue
+   Arguments: animal
+    animal can be either a dog or a cat object.
+    It must have a species property that is either "cat" or "dog"
+    It must have a name property that is a string.
+2. dequeue
+    Arguments: pref
+    pref can be either "dog" or "cat"
+    Return: either a dog or a cat, based on preference.
+    If pref is not "dog" or "cat" then return null.
+       
+![visualization](./wh-b.PNG)
 ## Approach & Efficiency
 
 - Time complexity :
-    The time complexity of enqueue and dequeue methods is O(n), where n is the number of elements in the queue, because in both methods, in the first will move all the elements from one stack to another, which takes O(n) time, and then perform some constant time operations.
+    The time complexity for the enqueue operation  is O(1). Enqueuing an animal simply involves adding it to the end of the queue, which can be done in constant time.
+
+    The time complexity for the dequeue operation depends on the number of animals in the queue and their positions. In the worst case, where the requested animal is at the front of the queue, the time complexity is O(1) because we can simply remove and return the front animal. 
+   
 - Space complexity :
-    The space complexity of enqueue and dequeue methods is O(n), because we are using two stacks to implement the queue, each of which can potentially hold n elements.
+    The space complexity for both the enqueue and dequeue operations is O(1). The amount of additional space required does not depend on the size of the queue, as we are only storing references to the animal objects.
 
 ## Solution
-### [Code Link](./StackAndQueue/PseudoQueue.py)
-### [Test Code Link](./tests/test_PseudoQueue.py)
+### [Code Link](./%20Animal_Shelter/AnimalShelter.py)
+### [Test Code Link](./%20Animal_Shelter/test_AnimalShelter.py)
 
 
 To run the code:
