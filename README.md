@@ -1,27 +1,22 @@
-# Challenge Title: Implement a Queue using two Stacks
-## Code Challenge: Class 11
+# Challenge Title: Multi-bracket Validation.
+## Code Challenge: Class 13
 ## Feature Tasks
-- Create a new class called pseudo queue.
-    Internally, utilize 2 Stack instances to create and manage the queue
-- Methods:
-    1. enqueue
-        Arguments: value
-        Inserts a value into the PseudoQueue, using a first-in, first-out approach.
-    2. dequeue
-        Arguments: none
-        Extracts a value from the PseudoQueue, using a first-in, first-out approach.
+    Write a function called validate brackets
+    Arguments: string
+    Return: boolean
+    representing whether or not the brackets in the string are balanced
 ## Whiteboard Process
-![]()
+![CC13](./CC13.PNG)
 ## Approach & Efficiency
 
 - Time complexity :
-    The time complexity of enqueue and dequeue methods is O(n), where n is the number of elements in the queue, because in both methods, in the first will move all the elements from one stack to another, which takes O(n) time, and then perform some constant time operations.
-- Space complexity :
-    The space complexity of enqueue and dequeue methods is O(n), because we are using two stacks to implement the queue, each of which can potentially hold n elements.
+The code iterates over each character in the input string once, performing constant-time operations for each character. Therefore, the time complexity of the code is O(n), where n is the length of the input string.
 
+- Space complexity :
+The space complexity is determined by the size of the stack used to keep track of opening brackets. In the worst case, if all opening brackets are present and not yet matched, the stack can contain up to n/2 elements (assuming a balanced scenario). Therefore, the space complexity of the code is O(n), where n is the length of the input string.
 ## Solution
-### [Code Link](./StackAndQueue/PseudoQueue.py)
-### [Test Code Link](./tests/test_PseudoQueue.py)
+### [Code Link](./stack_queue_brackets/stack_queue_brackets.py)
+### [Test Code Link](./tests/test_stack_queue_brackets.py)
 
 
 To run the code:
