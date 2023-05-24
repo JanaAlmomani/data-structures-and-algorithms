@@ -1,35 +1,43 @@
-# Challenge Title: First-in, First out Animal Shelter.
-## Code Challenge: Class 12
+# Challenge Title: Binary Tree and BST Implementation.
+## Code Challenge: Class 15: Binary Tree and BST Implementation
 ## Feature Tasks
+Node
+-	Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
 
-- Create a class called AnimalShelter which holds only dogs and cats.
-- The shelter operates using a first-in, first-out approach.
-- Implement the following methods:
-1. enqueue
-   Arguments: animal
-    animal can be either a dog or a cat object.
-    It must have a species property that is either "cat" or "dog"
-    It must have a name property that is a string.
-2. dequeue
-    Arguments: pref
-    pref can be either "dog" or "cat"
-    Return: either a dog or a cat, based on preference.
-    If pref is not "dog" or "cat" then return null.
+Binary Tree
+-	Create a Binary Tree class
+-	Define a method for each of the depth first traversals:
+-	pre order
+-	in order
+-	post order
+-	Each depth first traversal method should return an array of values, ordered appropriately.
+
+Binary Search Tree
+-	Create a Binary Search Tree class
+-	This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods:
+-	Add
+-	Arguments: value
+-	Return: nothing
+-	Adds a new node with that value in the correct location in the binary search tree.
+-	Contains
+-	Argument: value
+-	Returns: boolean indicating whether or not the value is in the tree at least once.
+
+
        
-![visualization](./wh-b.PNG)
+![]()
 ## Approach & Efficiency
 
 - Time complexity :
-    The time complexity for the enqueue operation  is O(1). Enqueuing an animal simply involves adding it to the end of the queue, which can be done in constant time.
 
-    The time complexity for the dequeue operation depends on the number of animals in the queue and their positions. In the worst case, where the requested animal is at the front of the queue, the time complexity is O(1) because we can simply remove and return the front animal. 
+ 
    
 - Space complexity :
-    The space complexity for both the enqueue and dequeue operations is O(1). The amount of additional space required does not depend on the size of the queue, as we are only storing references to the animal objects.
+
 
 ## Solution
-### [Code Link](./%20Animal_Shelter/AnimalShelter.py)
-### [Test Code Link](./%20Animal_Shelter/test_AnimalShelter.py)
+### [Code Link]()
+### [Test Code Link]()
 
 
 To run the code:
