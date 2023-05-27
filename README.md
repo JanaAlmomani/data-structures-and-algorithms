@@ -25,19 +25,36 @@ Binary Search Tree
 
 
        
-![]()
+![Whiteboard_CC15](./Whiteboard_CC15.PNG)
 ## Approach & Efficiency
 
-- Time complexity :
+1.  pre_order_traversal:
 
- 
-   
-- Space complexity :
+    - Time Complexity: O(n) - Visiting each node once
+    - Space Complexity: O(n) - Storing the result list
 
+2.  in_order_traversal:
 
+    - Time Complexity: O(n) - Visiting each node once
+    - Space Complexity: O(n) - Storing the result list
+
+3. post_order_traversal:
+
+    - Time Complexity: O(n) - Visiting each node once
+    - Space Complexity: O(n) - Storing the result list
+
+4.  add (in BinarySearchTree):
+
+    - Time Complexity: O(log n) on average, O(n) in the worst case (skewed tree)
+    - Space Complexity: O(1) - No additional space is used
+
+5. contains (in BinarySearchTree):
+
+    - Time Complexity: O(log n) on average, O(n) in the worst case (skewed tree)
+    - Space Complexity: O(1) - No additional space is used
 ## Solution
-### [Code Link]()
-### [Test Code Link]()
+### [Code Link](./trees/Tree.py)
+### [Test Code Link](./tests/test_tree.py)
 
 
 To run the code:
