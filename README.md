@@ -1,36 +1,42 @@
-# Challenge Title: Find the Maximum Value in a Binary Tree
-## Code Challenge: Class 16
-## Feature Tasks
 
-Write the following method for the Binary Tree class
+**_Insertion sort _**
 
--	find maximum value
--	Arguments: none
--	Returns: number
+**is a sorting algorithm that places an unsorted element at its suitable place in each iteration. Insertion sort works similarly as we sort cards in our hand in a card game. We assume that the first card is already sorted then, we select an unsorted card**
 
-Find the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+## To trace the array [8, 4, 23, 42, 16, 15] using the Insertion Sort algorithm, I will follow these steps:
 
+- Initialize the sorted array: sorted = []
 
-![visualization](./Whiteboard_CC16.PNG)
-## Approach & Efficiency
+1. Iteration 1:
 
-- The time complexity of the find_maximum_value method and its recursive helper _find_maximum_value_recursive is O(n), where n is the number of nodes in the binary tree. This is because the algorithm needs to visit each node once to compare its value with the maximum value found so far.
+Insert 8 into sorted, Since sorted is empty, append 8 to it 
+Updated sorted: [8]
 
-   
-- The space complexity is O(h), where h is the height of the binary tree. This is because the algorithm uses the call stack to store the recursive function calls. In the worst case, where the binary tree is skewed and has a height of n, the space complexity becomes O(n) due to the recursive calls. However, in a balanced binary tree, the height is typically log(n), resulting in a space complexity of O(log n).
+2. Iteration 2:
 
+Insert 4 into sorted, Compare 4 with 8 in sorted and find that 4 is smaller. Insert 4 before 8
+Updated sorted: [4, 8]
 
-## Solution
-### [Code Link](./trees/Tree.py)
-### [Test Code Link](./tests/test_tree.py)
+3. Iteration 3:
 
+Insert 23 into sorted, Compare 23 with 8 in sorted and find that 23 is greater. Move on to the next element, Compare 23 with 4 and find that 23 is greater. Insert 23 after 4 and before 8
+Updated sorted: [4, 8, 23]
 
-To run the code:
--on your terminal follow these command:
-1. python3 -m venv .venv
-1. source .venv/bin/activate
-2. pip install pytest or pip install -r requirements.txt
-3. pytest 
+4. Iteration 4:
 
-after finishing write this command:
-deactivate
+Insert 42 into sorted, Compare 42 with 23 in sorted and find that 42 is greater , Move on to the next element Compare 42 with 8 and find that 42 is greater, Move on to the next element, Compare 42 with 4 and find that 42 is greater. Insert 42 after 4, 8, and 23
+Updated sorted: [4, 8, 23, 42]
+
+5. Iteration 5:
+
+Insert 16 into sorted, Compare 16 with 42 in sorted and find that 16 is smaller. Move on to the next element. Compare 16 with 23 and find that 16 is smaller. Move on to the next element. Compare 16 with 8 and find that 16 is greater. Insert 16 after 8 and before 23.
+Updated sorted: [4, 8, 16, 23, 42]
+
+6. Iteration 6:
+
+Insert 15 into sorted, Compare 15 with 42 in sorted and find that 15 is smaller, Move on to the next element Compare 15 with 23 and find that 15 is smaller, Move on to the next element Compare 15 with 16 and find that 15 is smaller then Move on to the next element will Compare 15 with 8 and find that 15 is greater. Insert 15 after 8 and before 16
+
+Updated sorted: [4, 8, 15, 16, 23, 42]
+After going through all iterations and comparing the elements with the existing elements in the sorted array, the final sorted array is [4, 8, 15, 16, 23, 42].
+
+The Insertion Sort algorithm creates a sorted array by inserting elements one by one into their correct positions. It uses the Insert function to determine where each element should be placed within the sorted array.
