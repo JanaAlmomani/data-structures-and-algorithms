@@ -1,6 +1,6 @@
 def Insert(sorted, value):
     i = 0
-    while value > sorted[i]:
+    while i < len(sorted) and value > sorted[i]:
         i = i + 1
     while i < len(sorted):
         temp = sorted[i]
