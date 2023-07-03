@@ -1,61 +1,46 @@
-class Hashtable:
+class HashTable:
     def __init__(self):
         self.size = 100
         self.table = [None] * self.size
 
+    def hash(self, key):
+        return hash(key) % self.size
+
     def set(self, key, value):
-        """
-        Sets the key-value pair in the hashtable, handling collisions.
-        """
-        index = hash(key) % self.size
+        index = self.hash(key)
         if self.table[index] is None:
             self.table[index] = []
-        for i, entry in enumerate(self.table[index]):
-            if entry[0] == key:
-                self.table[index][i] = (key, value)  
+        for pair in self.table[index]:
+            if pair[0] == key:
+                pair[1] = value  # Replace value if key already exists
                 return
-        self.table[index].append((key, value))  
+        self.table[index].append([key, value])
 
     def get(self, key):
-        """
-        Returns the value associated with the given key in the table.
-        Returns None if the key doesn't exist.
-        """
-        index = hash(key) % self.size
-        if self.table[index] is not None:
-            for entry in self.table[index]:
-                if entry[0] == key:
-                    return entry[1]
-        return None
+        index = self.hash(key)
+        if self.table[index] is None:
+            return None
+        for pair in self.table[index]:
+            if pair[0] == key:
+                return pair[1]
+        return None  # Key not found
 
     def has(self, key):
-        """
-        Checks if the given key exists in the table.
-        Returns True if the key exists, False otherwise.
-        """
-        index = hash(key) % self.size
-        if self.table[index] is not None:
-            for entry in self.table[index]:
-                if entry[0] == key:
-                    return True
+        index = self.hash(key)
+        if self.table[index] is None:
+            return False
+        for pair in self.table[index]:
+            if pair[0] == key:
+                return True
         return False
 
     def keys(self):
-        """
-        Returns a collection of keys present in the table.
-        """
         keys = []
         for bucket in self.table:
             if bucket is not None:
-                for entry in bucket:
-                    keys.append(entry[0])
+                for pair in bucket:
+                    keys.append(pair[0])
         return keys
 
     def hash(self, key):
-        """
-        Returns the index in the collection for the given key.
-        """
-        return hash(key) % self.size
-
-
-
+        return self.hash(key)
