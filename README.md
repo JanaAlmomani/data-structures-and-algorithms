@@ -3,21 +3,17 @@
 ## - Arguments: string
 ## - Return: string
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![Whiteboard-CC31](./Whiteboard-CC31.PNG)
 
 ## Approach & Efficiency
 
-1. Start by defining the function find_first_repeated_word that takes an input_string as a parameter.
-2. Create an empty dictionary called word_freq to store the frequency of each word.
-3. Use regular expressions to remove punctuation marks from the input_string. This ensures that words are properly separated.
-4. Convert the input_string to lowercase and split it into a list of words.
-5. Iterate over each word in the list of words.
-6. Check if the word is already in the word_freq dictionary.
-    - If it is not present, add it to the dictionary and set its frequency to 1.
-    - If it is already present, increment its frequency by 1.
-7. Check if the frequency of the word is greater than 1.
-    - If it is, return the word as the first repeated word.
-8. If no repeated words are found, return the string "No Repetition" to indicate that no words were repeated.
+1.	Initialize an empty dictionary called word_freq to store the frequency of words.
+2.	Use regular expressions to find all words in the input string while converting them to lowercase. Store the words in the words list.
+3.	Iterate over each word in the words list.
+4.	If the word is not present in the word_freq dictionary, add it as a key with a frequency of 1.
+5.	If the word is already present in the word_freq dictionary, increment its frequency by 1.
+6.	Check if the frequency of the word is greater than 1. If so, return the word as the first repeated word.
+7.	If no repeated word is found after iterating through all words, return the string "No Repetition".
 
 ### The time complexity of find_first_repeated_word is O(n + m), and the space complexity is O(m), where n is the length of the input string and m is the number of words in the input string.
 

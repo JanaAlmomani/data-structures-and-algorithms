@@ -2,7 +2,6 @@ import re
 
 def find_first_repeated_word(input_string):
     word_freq = {}
-    # Remove punctuation marks using regular expressions
     words = re.findall(r'\b\w+\b', input_string.lower())
     for word in words:
         if word not in word_freq:
