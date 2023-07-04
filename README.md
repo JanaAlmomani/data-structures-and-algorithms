@@ -2,7 +2,7 @@
 ## Implement a Hashtable Class with the following methods: set,get,has,keys,hash
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![Whiteboard-CC30](./Whiteboard-CC30.PNG)
 
 ## Approach & Efficiency
 
@@ -38,27 +38,28 @@
 
  def keys(self)
 
-    Time Complexity: O(n), where n is the total number of entries in the hashtable.
+- Time Complexity: O(n), where n is the total number of entries in the hashtable.
     
-    Space Complexity: O(n), as the returned list holds all the keys.
+- Space Complexity: O(n), as the returned list holds all the keys.
 
 def hash(self, key)
 
-    Time Complexity: O(1)
+- Time Complexity: O(1)
     
-    Space Complexity: O(1)
+- Space Complexity: O(1)
 
 ## Solution
-[The Code Link](./hashtable/hashtable/hashtable.py)
-[The Test Code Link](./hashtable/tests/hashtable_test.py)
+- **_[The Code Link](./hashtable/hashtable/hashtable.py)_**
 
-- To run the code :
+- **_[The Test Code Link](./hashtable/tests/hashtable_test.py)_**
+
+- **To run the code :**
 
     python3 -m venv .venv
 
     source .venv/bin/activate
     
-- To run the Test:
+- **To run the Test:**
 
     pytest
 
