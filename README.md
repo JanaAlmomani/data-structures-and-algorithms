@@ -51,7 +51,7 @@ def hash(self, key)
 ## Solution
 - **_[The Code Link](./hashtable/hashtable/hashtable.py)_**
 
-- **_[The Test Code Link](./hashtable/tests/hashtable_test.py)_**
+- **_[The Test Code Link](./tests/hashtable_test.py)_**
 
 - **To run the code :**
 
