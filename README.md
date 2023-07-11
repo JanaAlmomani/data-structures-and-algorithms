@@ -1,19 +1,18 @@
-# Challenge Title: Find common values in 2 binary trees.
+# Challenge Title: Determine if a string is full of unique characters.
 
-**_Write a function called tree_intersection that takes two binary trees as parameters._**
-**_Using your Hashmap implementation as a part of your algorithm, return a set of values found in both trees. _**
-
+**_Write a function that checks if a given string consists of unique characters. Ignore spaces and treat characters as case-insensitive. Return True if all characters are unique and False otherwise._**
 ## Whiteboard Process
-![Whiteboard-CC32](./Whiteboard-CC32.PNG)
+![Whiteboard-CC34](./Whiteboard-CC34.PNG)
 
 ## Approach & Efficiency
 
-#### The time complexity is O(n) and the space complexity is O(m + h) for the tree_intersection function, where n is the maximum number of nodes between the two trees, m is the number of distinct values in the first tree, and h is the maximum height between the two trees.
+#### The is_unique_string function has a time complexity of O(n), where n is the length of the input string. It iterates through each character in the string once, performing constant-time operations.
 
+#### The space complexity of the function is O(k), where k is the number of unique characters in the input string (excluding spaces). In the worst case scenario, where all characters are unique, the space required is proportional to the number of unique characters.
 ## Solution
-- **_[The Code Link](./tree_intersection/tree_intersection/tree_intersection.py)_**
+- **_[The Code Link](./unique_string/unique_string.py)_**
 
-- **_[The Test Code Link](./tests/test_tree_intersection.py)_**
+- **_[The Test Code Link](./tests/test_unique_string.py)_**
 
 - **To run the code :**
 
