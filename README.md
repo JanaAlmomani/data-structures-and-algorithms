@@ -2,11 +2,12 @@
 
 **_Write a function that checks if a given string consists of unique characters. Ignore spaces and treat characters as case-insensitive. Return True if all characters are unique and False otherwise._**
 ## Whiteboard Process
-![Whiteboard-CC34](./Whiteboard-CC34.PNG)
+![Whiteboard-CC34](./Whiteboard-CC34.png)
 
 ## Approach & Efficiency
 
-#### The is_unique_string function has a time complexity of O(n), where n is the length of the input string. It iterates through each character in the string once, performing constant-time operations.
+#### The time complexity is of O(n), where n is the length of the input string. It iterates through each character in the string once, performing constant-time operations-->(checking membership in a set, adding elements to the set, and performing string operations (such as lowercase conversion and whitespace removal) )
+
 
 #### The space complexity of the function is O(k), where k is the number of unique characters in the input string (excluding spaces). In the worst case scenario, where all characters are unique, the space required is proportional to the number of unique characters.
 ## Solution
