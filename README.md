@@ -1,19 +1,36 @@
-# Challenge Title: Find common values in 2 binary trees.
+# Challenge Title: Implement a simplified LEFT JOIN for 2 Hashmaps.
 
-**_Write a function called tree_intersection that takes two binary trees as parameters._**
-**_Using your Hashmap implementation as a part of your algorithm, return a set of values found in both trees. _**
-
+- ***Write a function that LEFT JOINs two hashmaps into a single data structure.**
 ## Whiteboard Process
-![Whiteboard-CC32](./Whiteboard-CC32.PNG)
+![Whiteboard-CC33](./Whiteboard-CC33.png)
 
 ## Approach & Efficiency
 
-#### The time complexity is O(n) and the space complexity is O(m + h) for the tree_intersection function, where n is the maximum number of nodes between the two trees, m is the number of distinct values in the first tree, and h is the maximum height between the two trees.
+The Approach :
+
+        1.	Initialize an empty list to store the result.
+        2.	Iterate over each key in hashmap1.
+        3.	For each key:
+        •	Create a new row list.
+        •	Append the key to the row.
+        •	Append the corresponding value from hashmap1 to the row.
+        •	Check if the key exists in hashmap2.
+        •	If the key exists, append the corresponding value from hashmap2 to the row.
+        •	If the key does not exist, append None to the row.
+        •	Append the row to the result list.
+        4.	Return the result list containing the joined key-value pairs.
+        
+
+The Efficiency:
+
+         The time complexity (Big O) is O(n), where n is the number of keys in hashmap1-->This is because the function iterates through each key in hashmap1 once.
+
+         The space complexity is O(m), where m is the number of keys in hashmap1 for which a row is created. 
 
 ## Solution
-- **_[The Code Link](./tree_intersection/tree_intersection/tree_intersection.py)_**
+- **_[The Code Link](./hashmapLeftJoin/hashmapLeftJoin.py)_**
 
-- **_[The Test Code Link](./tests/test_tree_intersection.py)_**
+- **_[The Test Code Link](./tests/test_hashmap_left_join.py)_**
 
 - **To run the code :**
 
