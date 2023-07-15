@@ -1,44 +1,48 @@
-class Node:
-    def __init__(self,value=None):
-        self.value=value
-    def __str__(self):
-        return self.value
+import pytest 
+from graph.graph import *
+
+def test_add_vertex():
+    graph=Graph()
+    vertex=graph.add_vertex("A")
+    vertices=graph.get_vertices()
+
+    assert vertex in vertices
+
+def test_add_edge():
+    graph=Graph()
+    vertex1=graph.add_vertex("A")
+    vertex2=graph.add_vertex("B")
+    graph.add_edge(vertex1, vertex2)
+
+    neighbors=graph.get_neighbors(vertex1)
+    assert len(neighbors) == 1
+
+def test_get_vertices():
+    graph = Graph()
+    vertex1=graph.add_vertex("A")
+    vertex2=graph.add_vertex("B")
+    vertices=graph.get_vertices()
+
+    assert len(vertices) == 2
+
+def test_get_neighbors():
+    graph = Graph()
+    vertex1 = graph.add_vertex("A")
+    vertex2 = graph.add_vertex("B")
+    graph.add_edge(vertex1, vertex2)
+    neighbors = graph.get_neighbors(vertex1)
+
+    assert len(neighbors) == 1
+
+def test_size():
+    graph = Graph()
+    vertex1 = graph.add_vertex("A")
+    vertex2 = graph.add_vertex("B")
     
-class Edge:
-    def __init__(self,vertex, weight=0):
-        self.vertex = vertex
-        self.weight = weight
+    assert graph.size() == 2
 
+def test_size_zero():
+    graph = Graph() 
+    assert graph.size() == 0
 
-class Graph:
-    def __init__(self):
-        self.adj_list = {}
-
-    def add_vertex(self, value):
-        new_vertex = Node(value)
-        self.adj_list[new_vertex] = []
-        return new_vertex
     
-    def add_edge(self,vertex1, vertex2, weight=0):
-
-        if not vertex1 in self.adj_list.keys():
-            return("this node does not exist")
-        
-        if not vertex2 in self.adj_list.keys():
-            return("this node does not exist")
-        
-        edge1 = Edge(vertex2, weight)
-        self.adj_list[vertex1].append(edge1)
-
-        edge2 = Edge(vertex1, weight)
-        self.adj_list[vertex2].append(edge2)
-
-    def __str__(self):
-        output = ''
-        for vertex in self.adj_list.keys():
-            output += f'{vertex} -> '
-            for edge in self.adj_list[vertex]:
-                output += f'{edge.vertex} -----> '
-            output += '\n'
-        return output
-        
