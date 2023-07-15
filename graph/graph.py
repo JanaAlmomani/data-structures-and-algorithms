@@ -3,6 +3,7 @@ class Node:
         self.value=value
     def __str__(self):
         return self.value
+
 class Edge:
     def __init__(self,vertex, weight=0):
         self.vertex = vertex
