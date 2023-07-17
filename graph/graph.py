@@ -1,3 +1,4 @@
+from collections import deque
 class Node:
     def __init__(self,value=None):
         self.value=value
@@ -43,6 +44,28 @@ class Graph:
         
     def size(self):
         return len(self.adj_list.keys())
+    
+    def breadth_first(self, vertex):
+        node = set()
+        breadth  = deque()
+        breadth_first_traversal = []
+
+        if vertex in self.adj_list:
+            breadth .append(vertex)
+            node.add(vertex)
+
+        while breadth :
+            vertex = breadth .popleft()
+            breadth_first_traversal.append(vertex)
+
+            for edge in self.adj_list[vertex]:
+                neighbor = edge.vertex
+                if neighbor not in node:
+                    breadth .append(neighbor)
+                    node.add(neighbor)
+
+        return breadth_first_traversal
+
 
     def __str__(self):
         output = ''
@@ -53,3 +76,21 @@ class Graph:
             output += '\n'
         return output
         
+
+
+graph = Graph()
+
+vertex_A = graph.add_vertex('A')
+vertex_B = graph.add_vertex('B')
+vertex_C = graph.add_vertex('C')
+
+
+graph.add_edge(vertex_A, vertex_B)
+graph.add_edge(vertex_A, vertex_C)
+
+
+# print(graph)
+
+vertex = vertex_A
+breadth_first_traversal = graph.breadth_first(vertex)
+print([str(node) for node in breadth_first_traversal])
