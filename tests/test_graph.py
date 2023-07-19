@@ -45,4 +45,25 @@ def test_size_zero():
     graph = Graph() 
     assert graph.size() == 0
 
+def test_breadth_first_num1():
+    graph = Graph()
+    vertex1 = graph.add_vertex("A")
+    vertex2 = graph.add_vertex("B")
+    graph.add_edge(vertex1, vertex2)
+    BFT = graph.breadth_first(vertex1)
+    assert [str(node) for node in BFT] == ['A','B']
+
+
+def test_breadth_first_num2():
+    graph = Graph()
+    vertex1 = graph.add_vertex("J")
+    BFT = graph.breadth_first(vertex1)
+    assert [str(node) for node in BFT] == ['J']
+
+
+def test_breadth_first_num3():
+    graph = Graph()
+    BFT = graph.breadth_first(None)
+    assert [str(node) for node in BFT] == []
+
     
