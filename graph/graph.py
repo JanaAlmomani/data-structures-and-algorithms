@@ -65,6 +65,26 @@ class Graph:
                     node.add(neighbor)
 
         return breadth_first_traversal
+    
+
+
+    def depth_first(self,vertex):
+        if vertex is None:
+            return []
+
+        visited = set()
+        depth_first_traversal = []
+
+        def dfs(node):
+            visited.add(node)
+            depth_first_traversal.append(node.value)
+
+            if node in self.adj_list.keys():
+                for neighbor in self.adj_list[node]:
+                    if neighbor.vertex not in visited:
+                        dfs(neighbor.vertex)
+        dfs(vertex)
+        return depth_first_traversal
 
 
     def __str__(self):
@@ -88,9 +108,11 @@ vertex_C = graph.add_vertex('C')
 graph.add_edge(vertex_A, vertex_B)
 graph.add_edge(vertex_A, vertex_C)
 
-
-# print(graph)
+print(graph)
 
 vertex = vertex_A
 breadth_first_traversal = graph.breadth_first(vertex)
 print([str(node) for node in breadth_first_traversal])
+
+depth_first_traversal = graph.depth_first(vertex)
+print(depth_first_traversal)

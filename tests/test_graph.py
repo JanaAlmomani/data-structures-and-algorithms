@@ -97,3 +97,32 @@ def test_business_trip_num3():
     cities = ['Naboo', 'Arendelle']
     assert business_trip(graph, cities) == None
 
+
+##########   Test  CC-38 graph-depth-first   ##########
+
+def test_depth_first_num1():
+    graph = Graph()
+
+    vertex_A = graph.add_vertex('A')
+    vertex_B = graph.add_vertex('B')
+    vertex_C = graph.add_vertex('C')
+
+    graph.add_edge(vertex_A, vertex_B)
+    graph.add_edge(vertex_A, vertex_C)
+
+    vertex = vertex_A
+    assert graph.depth_first(vertex) ==['A', 'B', 'C']
+
+
+def test_depth_first_num2():
+    graph = Graph()
+
+    vertex_A = graph.add_vertex('A')
+
+    assert graph.depth_first(vertex_A) ==['A']
+
+def test_depth_first_num3():
+    graph = Graph()
+
+    assert graph.depth_first(None) ==[]
+   
